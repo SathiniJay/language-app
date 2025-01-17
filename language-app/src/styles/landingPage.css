@@ -1,0 +1,83 @@
+/* src/styles/landingPage.css */
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #108480;
+}
+
+.lcard {
+  background-color: white;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 100%;
+  max-width: 400px;
+}
+
+.card h1 {
+  font-size: 1.8em;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.card p {
+  font-size: 1em;
+  margin-bottom: 30px;
+}
+
+.try-button {
+  background-color: #d10074;
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 50px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  width: 80%;
+  font-size: 1em;
+}
+  
+.divider {
+  display: inline-block;
+  width: 45%;
+  border-top: 1px solid #000000;
+}
+
+.social-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.social-buttons button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  border: none;
+  border-radius: 50px;
+  color: white;
+  cursor: pointer;
+  font-size: 0.8em;
+}
+
+.google-button {
+  background-color: #db4437;
+}
+
+.apple-button {
+  background-color: black;
+}
+
+.facebook-button {
+  background-color: #3b5998;
+}
+
+.icon {
+  margin-right: 10px;
+  align-items: flex-start;
+  align-self: start;
+}

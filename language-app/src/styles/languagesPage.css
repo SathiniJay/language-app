@@ -1,0 +1,196 @@
+/* src/styles/LanguagesPage.css */
+.languages-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    padding-top: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    height: 100vh;
+  }
+  
+  .languages-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background-color: #008080;
+    padding: 20px;
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .languages-header h1 {
+    margin: 0;
+  }
+
+  .menu-icon {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+  }
+  
+  .menu-icon .bar {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 4px 0;
+  }
+
+  .menuIcon {
+    cursor: pointer;
+  }
+
+  .menuButton {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5em;
+    color: #FFFFFF;
+  }
+
+  .menuContent {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5em;
+    color: #2c3e50;
+  }
+  
+  .menu-icon {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .menu-icon .bar {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 4px 0;
+  }
+  
+  .menu-icon:focus {
+    outline: none;
+  }
+  
+  .profile-picture {
+    width: 100px;
+    height: 100px;
+    background-color: #aed9d1;
+    border-radius: 50%;
+    margin: 20px 0;
+  }
+  
+  .user-name {
+    margin: 10px 0;
+    font-size: 1.2em;
+    color: #333;
+  }
+  
+  .info-card {
+    display: flex;
+    align-items: center;
+    width: 90%;
+    background-color: #aed9d1;
+    padding: 20px;
+    margin: 10px 0;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .info-card .icon {
+    font-size: 2em;
+    margin-right: 10px;
+  }
+  
+  .info-card h3 {
+    margin: 0;
+    font-size: 1em;
+  }
+  
+  .select-language {
+    width: 90%;
+    background-color: #dcdcdc;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: relative;
+  }
+  
+  .select-language .icon {
+    font-size: 2em;
+    margin-right: 10px;
+  }
+  
+  .select-language h3 {
+    margin: 0;
+    font-size: 1em;
+  }
+  
+  .language-options {
+    margin-top: 10px;
+  }
+  
+  .language-options label {
+    display: flex;
+    align-items: center;
+    margin: 5px 0;
+  }
+  
+  .language-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .language-item {
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+  }
+  
+  .language-item label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .language-item input[type='checkbox'] {
+    display: none;
+  }
+  
+  .custom-checkbox {
+    margin-right: 10px;
+  }
+
+  .save-button {
+    padding: 10px;
+    background-color: #aed9d1; 
+    border: none;
+    padding: 15px;
+    border-radius: 10px;
+    color: black;
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    bottom: 10px;
+  }
+  
+  .save-button:hover {
+    background-color: #99bcb6; 
+  }
+  

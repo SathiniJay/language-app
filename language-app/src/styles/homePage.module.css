@@ -1,0 +1,133 @@
+/* src/styles/homePage.module.css */
+  .discoverContainer {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .header h1 {
+    margin: 0;
+  }
+  
+  .menuIcon {
+    cursor: pointer;
+  }
+
+  .menuButton {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5em;
+    color: #2c3e50;
+  }
+
+  .menuContent {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5em;
+    color: #2c3e50;
+  }
+  
+  .heading2 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: #000000;
+  }
+  
+  .newFeatures {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 50px;
+  }
+
+  .fcard {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    width: 50%;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+  
+  .featureCard {
+    flex: 3;
+    padding: 80px;
+    border-radius: 10px;
+  }
+  
+  .featureCardYellow {
+    background-color: #f8e71c;
+    flex: 3;
+    padding: 80px;
+    border-radius: 10px;
+  }
+  
+  .featureCardPink {
+    background-color: #d10074;
+    flex: 3;
+    padding: 80px;
+    border-radius: 10px;
+  }
+
+  .featureCardText {
+    flex: 1;
+    color: black;
+    border-radius: 50px;
+    font-size: 1em;
+    font-weight: 600;
+    padding: 10px;
+  }
+  
+  .infoCard {
+    display: flex;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+  
+  .infoImage {
+    width: 50%;
+    object-fit: cover;
+  }
+  
+  .infoText {
+    padding: 20px;
+    background-color: white;
+    flex: 1;
+  }
+  
+  .infoText h3 {
+    margin-top: 0;
+  }
+  
+  .exploreButton {
+    background-color: #108480;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 50px;
+    cursor: pointer;
+  }
+  
+  .footer {
+    text-align: center;
+    margin-top: 20px;
+  }
+  

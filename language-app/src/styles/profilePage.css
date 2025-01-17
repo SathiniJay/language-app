@@ -1,0 +1,119 @@
+/* src/styles/ProfilePage.css */
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    padding-top: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    /* height: 100vh; */
+  }
+  
+  .profile-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background-color: #008080;
+    padding: 20px;
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .profile-header h1 {
+    margin: 0;
+  }
+  
+  .menu-icon {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+  }
+  
+  .menu-icon .bar {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 4px 0;
+  }
+
+  .menuIcon {
+    cursor: pointer;
+  }
+
+  .menuButton {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5em;
+    color: #FFFFFF;
+  }
+
+  .menuContent {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5em;
+    color: #2c3e50;
+  }
+  
+  .profile-picture {
+    width: 100px;
+    height: 100px;
+    background-color: #aed9d1;
+    border-radius: 50%;
+    margin: 20px 0;
+  }
+  
+  .user-name {
+    margin: 10px 0;
+    font-size: 1.2em;
+    color: #333;
+  }
+  
+  .info-card {
+    all: unset;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    width: 90%;
+    /* height: 60px; */
+    background-color: #aed9d1;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .info-card .icon {
+    font-size: 2em;
+    margin-right: 10px;
+  }
+  
+  .info-card h3 {
+    margin: 0;
+    font-size: 1em;
+  }
+  
+  .info-card p {
+    margin: 5px 0 0 0;
+    font-size: 0.9em;
+    color: #333;
+  }
+
+  .profilebtns {
+    all: unset;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  

@@ -1,0 +1,115 @@
+/* src/styles/settingsPage.css */
+.settings-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    padding-top: 0;
+    font-family: Arial, sans-serif;
+    background-color: #FFFFFF;
+  }
+  
+  .settings-header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    background-color: #008080;
+    padding: 0 20px;
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .profile-section {
+    text-align: center;
+    margin: 20px 0;
+  }
+  
+  .settings-profile-picture {
+    width: 100px;
+    height: 100px;
+    background-color: #aed9d1;
+    border-radius: 50%;
+    margin: 0 auto;
+  }
+
+  .info-card {
+    display: flex;
+    align-items: center;
+    width: 85%;
+    background-color: #aed9d1;
+    padding: 20px;
+    margin: 10px 0;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .info-card .icon {
+    font-size: 2em;
+    margin-right: 10px;
+  }
+  
+  .info-card h3 {
+    margin: 0;
+    font-size: 1em;
+  }
+  
+  .settings-form {
+    display: flex;
+    flex-direction: column;
+    width: 35%; 
+}
+
+  /* Media query for mobile screens */
+  @media (max-width: 768px) { 
+      .settings-form {
+          width: 100%; 
+      }
+  }
+
+  .settings-form .MuiTextField-root {
+    margin-bottom: 15px;
+  }
+  
+  .settings-form .change-password {
+    align-self: flex-end;
+    margin-bottom: 20px;
+  }
+  
+  .birth-date-section {
+    margin-bottom: 20px;
+  }
+  
+  .birth-date-section label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .birth-date-inputs {
+    display: flex;
+    gap: 10px;
+    width: 100%; 
+    max-width: 600px; 
+}
+  
+  .birth-date-inputs .MuiTextField-root {
+    flex: 1;
+  }
+  
+  .join-date {
+    text-align: center;
+    color: gray;
+    margin-top: 20px;
+  }
+  
+  .saveChanges{
+    background-color: #008000; 
+    color: white; 
+    padding: 10px 20px; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+  }
+  
+  .save-changes:hover {
+    background-color: #006400; 
+  }

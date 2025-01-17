@@ -1,0 +1,47 @@
+/* src/styles/ProgressPage.css */
+.infoGap-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    padding-top: 0;
+    font-family: Arial, sans-serif;
+    background-color: #FFFFFF;
+  }
+  
+  .infoGap-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background-color: #008080;
+    padding: 20px;
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .infoGap-header h1 {
+    margin: 0;
+  }
+  
+  .menu-icon {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .menu-icon .bar {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 4px 0;
+  }
+  
+  .menu-icon:focus {
+    outline: none;
+  }
+  
