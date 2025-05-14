@@ -1,0 +1,105 @@
+.matrices-container {
+  padding: 2rem;
+  max-width: 700px;
+  margin: auto;
+  font-family: sans-serif;
+}
+
+.instruction-box {
+  background-color: #fdf0d5;
+  border-left: 4px solid #f4a261;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 6px;
+}
+
+.prompt-box {
+  background-color: #008080;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 15px;
+  font-weight: bold;
+}
+
+.matrix-grid {
+  margin-bottom: 1rem;
+}
+
+.matrix-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.matrix-label {
+  width: 150px;
+  font-weight: bold;
+}
+
+.matrix-cell {
+  border: 2px dashed #FFED6F;
+  width: 300px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #FFED6F;
+  border-radius: 15px;
+  transition: 0.2s;
+  cursor: grab;
+}
+
+.matrix-cell.correct {
+  background-color: #d4edda;
+  border-color: #28a745;
+  color: #155724;
+  font-weight: bold;
+  border-radius: 15px;
+}
+
+.matrix-cell.incorrect {
+  background-color: #f8d7da;
+  border-color: #dc3545;
+  color: #721c24;
+  font-weight: bold;
+  border-radius: 15px;
+}
+
+.answer-options {
+  margin: 1.5rem 0;
+}
+
+.options-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.option-box {
+  padding: 8px 12px;
+  background: #b7e4c7;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: grab;
+}
+
+.reveal-box {
+  margin-top: 20px;
+  padding: 1rem;
+  background: #ffeeba;
+  border: 1px solid #f0ad4e;
+  border-radius: 5px;
+}
+
+.action-buttons {
+  margin-top: 1rem;
+  display: flex;
+  gap: 10px;
+}
+
+button:disabled {
+  background-color: #ccc;
+  color: #666;
+  cursor: not-allowed;
+  opacity: 0.7;
+}

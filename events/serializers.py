@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import AppUsers,Conversation, ConversationContent, Language, Hint, Progress
+from .models import AppUsers,Conversation, ConversationContent, Language, Hint, Progress, InfoGapExercise, InfoGapListDeliContent, InfoGapMapTownCentreContent, InfoGapMatricesInterviewContent, InfoGapSession, InfoGapHint
 
 class AppUsersSerializer(serializers.ModelSerializer):
     class Meta:
@@ -41,3 +41,39 @@ class ProgressSerializer(serializers.ModelSerializer):
             'person', 'completed_times'
         ]
         read_only_fields = ['user_email', 'language_name', 'conversation_level', 'conversation_context', 'conversation_scenario']
+
+# Serializer for the main info gap exercise data
+class InfoGapExerciseSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = InfoGapExercise
+        fields = '__all__'
+
+# Serializer for the Information Gap List (Grocery Deli scenario)
+class InfoGapListDeliContentSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = InfoGapListDeliContent
+        fields = '__all__'
+
+# Serializer for the Information Gap Map (Town Centre map scenario)
+class InfoGapMapTownCentreContentSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = InfoGapMapTownCentreContent
+        fields = '__all__'
+
+# Serializer for the Information Gap Matrices (Interview scenario)
+class InfoGapMatricesInterviewContentSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = InfoGapMatricesInterviewContent
+        fields = '__all__'
+
+# Serializer for managing real-time two-person sessions
+class InfoGapSessionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = InfoGapSession
+        fields = '__all__'
+
+# Serializer for multilingual vocabulary hints associated with exercises
+class InfoGapHintSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = InfoGapHint
+        fields = '__all__'

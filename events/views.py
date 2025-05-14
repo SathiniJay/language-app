@@ -3,9 +3,12 @@ from rest_framework.response import Response
 from django.http import Http404
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated
-from .models import AppUsers, Conversation, ConversationContent, Language, Hint, Progress
-from .serializers import AppUsersSerializer, ConversationSerializer, ConversationContentSerializer, LanguageSerializer, HintSerializer, ProgressSerializer
+from .models import AppUsers, Conversation, ConversationContent, Language, Hint, Progress, InfoGapExercise, InfoGapListDeliContent, InfoGapMapTownCentreContent, InfoGapMatricesInterviewContent, InfoGapSession, InfoGapHint
+from .serializers import AppUsersSerializer, ConversationSerializer, ConversationContentSerializer, LanguageSerializer, HintSerializer, ProgressSerializer, InfoGapExerciseSerializer, InfoGapListDeliContentSerializer, InfoGapMapTownCentreContentSerializer, InfoGapMatricesInterviewContentSerializer, InfoGapSessionSerializer, InfoGapHintSerializer
+import random
+import string
 
+# -------------------- ViewSets for CRUD operations --------------------
 class AppUsersViewSet(viewsets.ModelViewSet):
     queryset = AppUsers.objects.all()
     serializer_class = AppUsersSerializer
@@ -63,6 +66,28 @@ class ProgressViewSet(viewsets.ModelViewSet):
     def perform_create(self, serializer):
         # Automatically associate the logged-in user with the progress record
         serializer.save(user=self.request.user)
+
+# ViewSet for managing InfoGapExercise objects (GET, POST, PUT, DELETE)
+class InfoGapExerciseViewSet(viewsets.ModelViewSet):
+    queryset = InfoGapExercise.objects.all()
+    serializer_class = InfoGapExerciseSerializer
+
+# ViewSet for Information Gap List (Grocery Deli scenario)
+class InfoGapListDeliContentViewSet(viewsets.ModelViewSet):
+    queryset = InfoGapListDeliContent.objects.all()
+    serializer_class = InfoGapListDeliContentSerializer
+
+# ViewSet for Information Gap Map (Town Centre map scenario)
+class InfoGapMapTownCentreContentViewSet(viewsets.ModelViewSet):
+    queryset = InfoGapMapTownCentreContent.objects.all()
+    serializer_class = InfoGapMapTownCentreContentSerializer
+
+# ViewSet for Information Gap Matrices (Interview scenario)
+class InfoGapMatricesInterviewContentViewSet(viewsets.ModelViewSet):
+    queryset = InfoGapMatricesInterviewContent.objects.all()
+    serializer_class = InfoGapMatricesInterviewContentSerializer    
+
+# -------------------- Custom API Views --------------------
 
 @api_view(['GET', 'POST'])
 def progress_view(request):
@@ -141,3 +166,100 @@ def progress_view(request):
         progress_entries = Progress.objects.filter(user=user)
         serializer = ProgressSerializer(progress_entries, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
+    
+# Function to generate a 5-character session code for session managemnet in info gap exercises(uppercase letters + digits)
+def generate_session_code():
+    return ''.join(random.choices(string.ascii_uppercase + string.digits, k=5))
+    
+# API to create a new session (used by Person A)
+@api_view(['POST'])
+def create_session(request):
+    exercise_id = request.data.get("infoGapExerciseId")
+    try:
+        # Get the associated exercise object
+        exercise = InfoGapExercise.objects.get(infoGapExerciseId=exercise_id)
+    except InfoGapExercise.DoesNotExist:
+        return Response({"error": "Invalid InfoGapExerciseId"}, status=400)
+
+    # Generate session and mark Person A as joined
+    session_code = generate_session_code()
+    session = InfoGapSession.objects.create(
+        session_code=session_code,
+        exercise=exercise,
+        person_a_joined=True
+    )
+    serializer = InfoGapSessionSerializer(session)
+    return Response(serializer.data, status=201)
+
+# API for Person B to join an existing session
+@api_view(['POST'])
+def join_session(request):
+    session_code = request.data.get("sessionCode")
+    exercise_id = request.data.get("infoGapExerciseId")
+
+    try:
+        session = InfoGapSession.objects.get(session_code=session_code)
+        # Make sure the exercise IDs match
+        if str(session.exercise.infoGapExerciseId) != str(exercise_id):
+            return Response({"error": "Exercise ID mismatch."}, status=403)
+        session.person_b_joined = True
+        session.save()
+        return Response(InfoGapSessionSerializer(session).data)
+    except InfoGapSession.DoesNotExist:
+        return Response({"error": "Session code not found."}, status=404)
+    
+# API to check if both users have joined a session (polled from frontend)
+@api_view(['GET'])
+def session_status(request, session_code):
+    try:
+        session = InfoGapSession.objects.get(session_code=session_code)
+        return Response({
+            "person_a_joined": session.person_a_joined,
+            "person_b_joined": session.person_b_joined,
+        })
+    except InfoGapSession.DoesNotExist:
+        return Response({"error": "Session not found"}, status=404)
+    
+# API to fetch translated word hints based on language and exercise ID
+@api_view(['GET'])
+def get_info_gap_hints(request):
+    language_name = request.GET.get('languageName')
+    exercise_id = request.GET.get('infoGapExerciseId')
+
+    if not language_name or not exercise_id:
+        return Response({"error": "Missing parameters"}, status=400)
+
+    # Filter by InfoGapExercise
+    hints = InfoGapHint.objects.filter(infoGapExerciseId=exercise_id)
+
+    # Return result only with the related language column
+    results = []
+    for hint in hints:
+        translated = getattr(hint, language_name.lower(), None)
+        if translated:
+            results.append({
+                "word": hint.word,
+                "hint": translated
+            })
+
+    return Response(results)
+
+# API for marking an exercise as completed by a person
+@api_view(['POST'])
+def mark_completed(request):
+    session_code = request.data.get("session_code")
+    person = request.data.get("person") # "A" or "B"
+
+    try:
+        session = InfoGapSession.objects.get(session_code=session_code)
+        if person == "A":
+            session.person_a_completed = True
+        elif person == "B":
+            session.person_b_completed = True
+        session.save()
+
+        both_done = session.person_a_completed and session.person_b_completed
+        return Response({ "bothCompleted": both_done })
+
+    except InfoGapSession.DoesNotExist:
+        return Response({ "error": "Session not found" }, status=404)

@@ -17,6 +17,11 @@ import Test from './pages/test';
 import ConversationTest from './pages/conversationTest';
 import ForgotPassword from './pages/ForgotPassword';
 import Credits from './pages/credits';
+import InformationGapExercise from './pages/InformationGapExercise';
+import InfoGapListDeli from './pages/infoGapListDeli';
+import InfoGapMapTownCentre from './pages/infoGapMapTownCentre';
+import InfoGapMatricesInterview from './pages/infoGapMatricesInterview';
+import JoinSession from './pages/JoinSession';
 
 function App() {
   return (
@@ -39,6 +44,11 @@ function App() {
         <Route path="/convTest" element={<ConversationTest/>}/>
         <Route path="/forgot-password" element={<ForgotPassword/>} />
         <Route path="/credits" element={<Credits />} />
+        <Route path="/activity-selection/information-gap-exercise" element={<InformationGapExercise />} />
+        <Route path="/activity-selection/information-gap/lists/infoGapListDeli" element={<InfoGapListDeli />} />
+        <Route path="/activity-selection/information-gap/maps/InfoGapMapTownCentre" element={<InfoGapMapTownCentre />} />
+        <Route path="/activity-selection/information-gap/matrices/infoGapMatricesInterview" element={<InfoGapMatricesInterview  />} />
+        <Route path="/join-session" element={<JoinSession />} />
       </Routes>
     </Router>
   );

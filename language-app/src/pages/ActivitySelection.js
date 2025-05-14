@@ -44,7 +44,7 @@ function ActivitySelection(){
                 </div>
                 <div className="ButtonSel">
                     <button className="convo"onClick={()=> navigate("/activity-selection/conversations")}>Conversations</button>
-                    <button className="InfoGap" disabled>Information Gap</button>
+                    <button className="InfoGap" onClick={()=> navigate("/activity-selection/information-gap")}>Information Gap</button>
                 </div>
             </div>
             <Footer/>
